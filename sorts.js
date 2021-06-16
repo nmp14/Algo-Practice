@@ -64,3 +64,24 @@ const merge = (left, right) => {
 };
 
 console.log(mergeSort([5, 2, 9, 10, 50, 42, 11, 3, 2, 1, 15, 16, 1, 67, 92, 100, 44, 99, 23, 32, 21, 7, 8]));
+
+
+const quickSort = (arr) => {
+    if (arr.length <= 1) return arr;
+
+    const pivot = arr[arr.length - 1];
+    const leftArr = [];
+    const rightArr = [];
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < pivot) {
+            leftArr.push(arr[i]);
+        } else {
+            rightArr.push(arr[i]);
+        }
+    }
+
+    return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+}
+
+console.log(quickSort([5, 2, 9, 10, 50, 42, 11, 3, 2, 1, 15, 16, 1, 67, 92, 100, 44, 99, 23, 32, 21, 7, 8]));
